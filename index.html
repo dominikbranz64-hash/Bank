@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Bank Symulator PLN 2.0</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="logowanie" class="logowanie">
+    <h2>🔐 Zaloguj się do Banku</h2>
+    <button onclick="zaloguj()">Zaloguj PIN-em</button>
+  </div>
+
+  <div id="panel" class="panel" style="display:none;">
+    <h1>🏦 Bank Symulator (PLN)</h1>
+
+    <div class="konto-wybor">
+      <label for="kontoSelect">Wybierz konto:</label>
+      <select id="kontoSelect" onchange="zmienKonto()">
+        <option value="glowne">Konto Główne</option>
+        <option value="oszczednosciowe">Konto Oszczędnościowe</option>
+      </select>
+    </div>
+
+    <h2>Saldo: <span id="saldo">0.00 zł</span></h2>
+
+    <div class="buttons">
+      <button onclick="wplata()">💵 Wpłata</button>
+      <button onclick="wyplata()">💸 Wypłata</button>
+      <button onclick="przelew()">📤 Przelew zewnętrzny</button>
+      <button onclick="przelewMiedzy()">🔁 Między kontami</button>
+      <button onclick="resetKonta()">🗑️ Reset</button>
+    </div>
+
+    <h3>📜 Historia transakcji:</h3>
+    <ul id="historia"></ul>
+
+    <h3>📈 Wykres salda:</h3>
+    <canvas id="wykres" width="400" height="200"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
